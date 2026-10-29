@@ -7,3 +7,6 @@
 
 /* Logos monocromáticos en proyectos y colaboraciones */
 .brand-logo{display:block;width:100%;height:auto;color:#fff;overflow:visible}.brand-logo-edukai{max-width:360px;margin:auto}.university-logo-stack{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:16px;width:min(85%,360px);margin:auto}.university-logo-stack .brand-logo{max-height:92px;width:auto;max-width:100%}.logo-unir{max-width:195px!important}.logo-euneiz{max-width:320px!important}.logo-sanjorge{max-width:235px;min-height:64px;margin-bottom:12px}.collabs-grid .logo-sanjorge+h3{margin:0}.project-art .brand-logo text,.collabs-grid .brand-logo text{paint-order:normal}@media(max-width:600px){.brand-logo-edukai{max-width:270px}.university-logo-stack .brand-logo{max-height:75px}.logo-sanjorge{max-width:210px}}
+
+/* Logotipos originales: sin recreaciones tipográficas ni fondos */
+.brand-logo{display:block;object-fit:contain;color:unset}.university-logo-stack .brand-logo{width:100%;height:auto;object-fit:contain}.brand-logo-edukai{width:min(100%,360px);max-height:310px;object-fit:contain}.logo-unir{max-width:245px!important;max-height:92px}.logo-euneiz{max-width:315px!important;max-height:85px}.logo-sanjorge{max-width:235px;max-height:95px;object-fit:contain}
