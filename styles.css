@@ -10,3 +10,33 @@
 
 /* Logotipos originales: sin recreaciones tipográficas ni fondos */
 .brand-logo{display:block;object-fit:contain;color:unset}.university-logo-stack .brand-logo{width:100%;height:auto;object-fit:contain}.brand-logo-edukai{width:min(100%,360px);max-height:310px;object-fit:contain}.logo-unir{max-width:245px!important;max-height:92px}.logo-euneiz{max-width:315px!important;max-height:85px}.logo-sanjorge{max-width:235px;max-height:95px;object-fit:contain}
+
+/* Trayectoria: jerarquía editorial, ritmo e interacción sutil */
+.journey{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 8% 15%,#30214d 0%,transparent 48%),linear-gradient(135deg,#141725 0%,#0d101b 100%);padding:clamp(95px,10vw,155px) 0;margin-top:100px}
+.journey:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(25% - 1px),#ffffff08 25%);mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 65%,transparent)}
+.journey-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.18fr);gap:clamp(40px,7vw,105px)}
+.journey-title{position:relative;align-self:start}
+.journey-title .eyebrow{font-size:12px;letter-spacing:2.4px;color:#c6b7ff;margin-bottom:30px}
+.journey-title h2{font-size:clamp(52px,5.4vw,83px);font-weight:650;line-height:1.09;letter-spacing:-.065em;margin-bottom:29px;max-width:570px}
+.journey-title h2 em{display:inline-block;background:linear-gradient(100deg,#d9c8ff,#9a82ff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.journey-title>p:not(.eyebrow){font-size:clamp(16px,1.5vw,20px);line-height:1.6;color:#bfc0d0;max-width:365px}
+.journey-deco{display:block;margin-top:50px;color:#ffffff12;font-family:Manrope,sans-serif;font-size:clamp(85px,12vw,165px);font-weight:800;line-height:1;letter-spacing:-.1em;user-select:none}
+.journey-deco span{font-size:.4em;vertical-align:top;color:#8d7bf442;margin-left:20px}
+.timeline{border-left:2px solid #64568e;padding-left:clamp(26px,3.5vw,55px);position:relative}
+.timeline article{position:relative;margin:0 0 22px;padding:26px 28px 30px;border:1px solid #ffffff13;background:linear-gradient(125deg,#27243a9c,#181a2ba3);border-radius:16px;transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease}
+.timeline article:last-child{margin-bottom:0}
+.timeline article:hover{transform:translateX(8px);border-color:#aa95ef8c;background:linear-gradient(125deg,#302a4d,#181a2b);box-shadow:0 16px 50px #0002}
+.timeline article:before{width:13px;height:13px;left:calc(-1 * clamp(26px,3.5vw,55px) - 8px);top:40px;background:#9c85eb;outline:7px solid #171627;box-shadow:0 0 0 2px #8b7ad6;z-index:2}
+.timeline article:first-child:before{background:#d4c8ff;box-shadow:0 0 0 2px #9d88f9,0 0 28px #a48bff99}
+.timeline-date{font-size:12px;letter-spacing:1.3px;font-weight:700;color:#bda9ff;margin-bottom:15px}
+.timeline h3{font-size:clamp(23px,2.3vw,31px);font-weight:700;line-height:1.27;letter-spacing:-.035em;margin-bottom:8px}
+.timeline .organization{color:#e7ddff;font-size:clamp(15px,1.25vw,17px);font-weight:600;margin-bottom:17px}
+.timeline p:not(.organization){font-size:clamp(14px,1.2vw,16px);line-height:1.8;color:#b9bdcc;max-width:630px}
+.edukai-wordmark{font:800 clamp(40px,4vw,61px)/1 Manrope,sans-serif;letter-spacing:-.065em;color:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap}
+.edukai-wordmark span{font-weight:450;color:#d9ceff}
+.edukai-socials{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:17px 0 20px}
+.edukai-socials a{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;padding:9px 14px;border:1px solid #5a5073;border-radius:40px;font-size:12px;font-weight:650;color:#ebe6ff;transition:background .2s,transform .2s}
+.edukai-socials a:hover{background:#6e5ab044;transform:translateY(-2px)}
+@media(max-width:850px){.journey-grid{grid-template-columns:1fr;gap:45px}.journey-title h2{font-size:clamp(48px,9vw,70px)}.journey-deco{display:none}.journey{padding:80px 0}.timeline{padding-left:32px}.timeline article:before{left:-40px}}
+@media(max-width:500px){.journey{padding:65px 0}.journey-title h2{font-size:clamp(42px,11vw,58px)}.timeline article{padding:22px 19px 25px}.timeline h3{font-size:23px}.timeline-date{font-size:10px}.edukai-wordmark{font-size:clamp(37px,10vw,52px)}}
+@media(prefers-reduced-motion:reduce){.timeline article,.edukai-socials a{transition:none}.timeline article:hover,.edukai-socials a:hover{transform:none}}
