@@ -40,3 +40,6 @@
 @media(max-width:850px){.journey-grid{grid-template-columns:1fr;gap:45px}.journey-title h2{font-size:clamp(48px,9vw,70px)}.journey-deco{display:none}.journey{padding:80px 0}.timeline{padding-left:32px}.timeline article:before{left:-40px}}
 @media(max-width:500px){.journey{padding:65px 0}.journey-title h2{font-size:clamp(42px,11vw,58px)}.timeline article{padding:22px 19px 25px}.timeline h3{font-size:23px}.timeline-date{font-size:10px}.edukai-wordmark{font-size:clamp(37px,10vw,52px)}}
 @media(prefers-reduced-motion:reduce){.timeline article,.edukai-socials a{transition:none}.timeline article:hover,.edukai-socials a:hover{transform:none}}
+
+/* Navegación adaptada a la nueva sección de materiales */
+.header nav{gap:clamp(12px,2vw,29px)}.header nav a{white-space:nowrap}.header nav a[href="material-formaciones.html"]{color:#e2d9ff;font-weight:650}.header nav a[href="material-formaciones.html"]:hover{color:#fff}@media(min-width:801px) and (max-width:1150px){.header{width:min(1320px,calc(100% - 44px))}.header nav{gap:12px;font-size:11px}.nav-contact{padding:9px 12px;gap:10px}}
