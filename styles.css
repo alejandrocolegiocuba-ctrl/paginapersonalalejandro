@@ -43,3 +43,14 @@
 
 /* Navegación adaptada a la nueva sección de materiales */
 .header nav{gap:clamp(12px,2vw,29px)}.header nav a{white-space:nowrap}.header nav a[href="material-formaciones.html"]{color:#e2d9ff;font-weight:650}.header nav a[href="material-formaciones.html"]:hover{color:#fff}@media(min-width:801px) and (max-width:1150px){.header{width:min(1320px,calc(100% - 44px))}.header nav{gap:12px;font-size:11px}.nav-contact{padding:9px 12px;gap:10px}}
+
+/* Menú desplegable Material de las formaciones */
+.header nav .training-dropdown{position:relative;z-index:50;flex-shrink:0}
+.header nav .training-dropdown summary{list-style:none;display:flex;align-items:center;gap:8px;white-space:nowrap;color:#e9e4ff;cursor:pointer;font-size:inherit;font-weight:650}
+.header nav .training-dropdown summary::-webkit-details-marker{display:none}
+.header nav .training-dropdown summary span{font-size:17px;transition:transform .2s ease}
+.header nav .training-dropdown[open] summary span{transform:rotate(180deg)}
+.header nav .training-dropdown-panel{position:absolute;top:calc(100% + 18px);left:0;min-width:270px;display:flex;flex-direction:column;gap:4px;padding:9px;background:#191b2a;border:1px solid #5b517c;border-radius:12px;box-shadow:0 20px 55px #0008;z-index:60}
+.header nav .training-dropdown-panel a{display:block;padding:12px 14px;border-radius:8px;font-size:13px;font-weight:550;color:#ede7ff;white-space:normal}
+.header nav .training-dropdown-panel a:hover,.header nav .training-dropdown-panel a[aria-current="page"]{background:#45355f;color:#fff}
+@media(max-width:800px){.header nav .training-dropdown{width:100%}.header nav .training-dropdown summary{padding:9px 0}.header nav .training-dropdown-panel{position:static;box-shadow:none;margin-top:8px;min-width:0;width:100%}}
