@@ -51,18 +51,76 @@
 @media(max-width:850px){.library-grid{grid-template-columns:1fr}.library-hero{padding-top:65px}.library-top{display:block}.library-count{display:block;margin-top:11px}}
 @media(max-width:550px){.library-controls{flex-direction:column}.library-controls select{width:100%}.library-advice{padding:20px}.library-card .card-top{padding:21px}.library-actions{padding:0 21px 20px}.library-details pre{padding:0 21px 21px}.library-details summary{padding:15px 21px}}
 @media(prefers-reduced-motion:reduce){.library-switch a,.library-actions button{transition:none}}
+
+/* Editor de prompts: mesa de trabajo accesible y adaptable */
+.library-actions .edit-prompt{background:#30284c;border-color:#a694ed;color:#f7f3ff}
+.editor-dialog{border:1px solid #575074;border-radius:20px;color:#f3f2f8;background:#151827;padding:0;width:min(1200px,calc(100vw - 32px));max-width:none;max-height:min(92vh,980px);box-shadow:0 30px 100px #000b}
+.editor-dialog::backdrop{background:#050711dc;backdrop-filter:blur(5px)}
+.editor-shell{min-height:400px}
+.editor-heading-row{padding:27px 32px 24px;border-bottom:1px solid #3c3a52;display:flex;align-items:start;gap:20px;justify-content:space-between}
+.editor-kicker{font-size:10px;font-weight:700;color:#bda8ff;letter-spacing:1.5px}
+.editor-heading-row h2{font-size:clamp(25px,3vw,35px);margin:9px 0}
+.editor-heading-row p{color:#bfc0d0;margin:0;font-size:14px}
+.editor-close{background:#26283a;border:1px solid #59566e;border-radius:9px;color:#fff;padding:11px 15px;font-size:18px}
+.editor-main{display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.7fr);min-height:410px}
+.editor-side{padding:26px 28px;background:#191b2e;border-right:1px solid #424055;max-height:65vh;overflow:auto}
+.editor-side h3{font-size:17px;margin-bottom:8px}
+.editor-help,.editor-no-fields{color:#b7bad0;font-size:12px;line-height:1.7}
+.editor-fields{display:grid;gap:13px;margin-top:22px}
+.editor-field{display:grid;gap:7px;background:#20223a;padding:13px;border:1px solid #45405e;border-radius:10px}
+.editor-field span{color:#dfd4ff;font-size:12px;font-weight:700;overflow-wrap:anywhere}
+.editor-field input{min-width:0;width:100%;font:inherit;font-size:13px;padding:11px;border:1px solid #55526f;background:#121522;color:white;border-radius:6px}
+.field-apply{padding:8px 12px;border:1px solid #7867b7;border-radius:6px;background:#3b315c;color:#f4eeff;font-size:12px;font-weight:650}
+.field-replaced{opacity:.62}
+.editor-content{min-width:0;padding:26px 30px;display:flex;flex-direction:column}
+.editor-content label{color:#e3deff;font-size:13px;font-weight:700;margin-bottom:10px}
+.editor-content textarea{font:14px/1.7 "DM Sans",sans-serif;color:#edeef7;background:#0d101a;border:1px solid #524d70;border-radius:10px;padding:19px;resize:vertical;min-height:330px;flex:1;max-height:57vh;overflow:auto}
+.editor-content textarea:focus-visible,.editor-field input:focus-visible{outline:2px solid #a997ff;outline-offset:3px}
+#editor-hint{color:#9da3ba;font-size:11px;line-height:1.6;margin:11px 0}
+.editor-toolbar{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.editor-toolbar button{padding:12px 18px;border-radius:8px;font-weight:700;font-size:13px}
+.editor-secondary{background:#23263a;color:#e4e0ef;border:1px solid #5d5677}
+.editor-primary{background:#8871f1;border:1px solid #8871f1;color:#fff}
+#editor-message{color:#c0b0ff;font-size:12px;min-height:20px;margin:13px 0 0}
+@media(max-width:780px){.editor-dialog{max-height:96vh}.editor-main{display:flex;flex-direction:column}.editor-heading-row{padding:22px}.editor-side{border-right:0;border-bottom:1px solid #494560;max-height:25vh;padding:18px 22px}.editor-content{padding:21px 22px}.editor-content textarea{min-height:240px;max-height:39vh}.editor-fields{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.editor-toolbar button{flex:1}}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <header class="header"><a class="brand" href="index.html#inicio" aria-label="Alejandro García Asensio, inicio">a<span>g</span><i>.</i></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menú <span>☰</span></button><nav id="navigation" aria-label="Navegación principal"><a href="index.html#sobre-mi">Sobre mí</a><a href="index.html#experiencia">Trayectoria</a><a href="index.html#formaciones">Formaciones</a><a href="index.html#proyectos">Proyectos</a><details class="training-dropdown"><summary>Material de las formaciones <span aria-hidden="true">⌄</span></summary><div class="training-dropdown-panel"><a href="material-formaciones.html">Vibe coding prompts</a><a href="biblioteca-prompts.html" aria-current="page">Biblioteca personal de prompts</a></div></details><a class="nav-contact" href="index.html#contacto">Hablemos <span>↗</span></a></nav></header>
 <main id="contenido">
-<section class="library-hero wrap"><p class="eyebrow"><span class="dot"></span> MATERIAL DE LAS FORMACIONES / BIBLIOTECA</p><h1>Biblioteca personal<br>de <em>prompts.</em></h1><p class="library-lead">Una selección de prompts que he ido recopilando durante mi experiencia utilizando inteligencia artificial. Explóralos, adáptalos a tus necesidades y construye tu propia biblioteca.</p><div class="library-switch" aria-label="Secciones del material"><a href="material-formaciones.html">Vibe coding prompts</a><a href="biblioteca-prompts.html" class="active" aria-current="page">Biblioteca personal de prompts</a></div></section>
+<section class="library-hero wrap"><p class="eyebrow"><span class="dot"></span> MATERIAL DE LAS FORMACIONES / BIBLIOTECA</p><h1>Biblioteca personal<br>de <em>prompts.</em></h1><p class="library-lead">Una selección de prompts que he ido recopilando durante mi experiencia utilizando inteligencia artificial. Busca el que necesites, personalízalo en el editor y copia tu propia versión.</p><div class="library-switch" aria-label="Secciones del material"><a href="material-formaciones.html">Vibe coding prompts</a><a href="biblioteca-prompts.html" class="active" aria-current="page">Biblioteca personal de prompts</a></div></section>
 <section class="wrap">
 <div class="library-advice"><span class="small-label">ANTES DE EMPEZAR</span><h2>Un consejo de uso</h2><p id="library-advice">Personaliza los prompts antes de utilizarlos y adáptalos a tu contexto educativo.</p></div>
 </section>
 <section class="library-body wrap" aria-label="Catálogo de prompts"><div class="library-top"><h2>Explora los prompts</h2><span class="library-count" id="library-count" role="status" aria-live="polite">Cargando biblioteca…</span></div><div class="library-controls"><label for="library-search">Buscar un prompt</label><input id="library-search" type="search" placeholder="Buscar por título o contenido…" autocomplete="off"><label for="library-category">Filtrar por temática</label><select id="library-category"><option value="all">Todas las temáticas</option></select></div><div id="library-grid" class="library-grid"></div><p id="library-empty" class="library-empty" hidden>No hay prompts que coincidan con tu búsqueda.</p></section>
 <div class="library-footer wrap">Prompts extraídos de la biblioteca personal facilitada en PDF. <a href="material-formaciones.html">Volver a los prompts de Vibe Coding</a>.</div>
+<dialog id="prompt-editor" class="editor-dialog" aria-labelledby="editor-heading">
+  <div class="editor-shell">
+    <div class="editor-heading-row">
+      <div><span class="editor-kicker">TU ESPACIO DE TRABAJO</span><h2 id="editor-heading">Personaliza el prompt</h2><p id="editor-origin"></p></div>
+      <button type="button" id="editor-close" class="editor-close" aria-label="Cerrar editor">✕</button>
+    </div>
+    <div class="editor-main">
+      <aside class="editor-side">
+        <h3>Campos para personalizar</h3>
+        <p class="editor-help">Completa los campos entre corchetes que detectemos. También puedes modificar libremente todo el texto.</p>
+        <div id="editor-fields" class="editor-fields"></div>
+      </aside>
+      <div class="editor-content">
+        <label for="editor-text">Texto editable del prompt</label>
+        <textarea id="editor-text" spellcheck="true" aria-describedby="editor-hint"></textarea>
+        <p id="editor-hint">Los cambios se conservan mientras mantengas abierta esta página. No se envían a ningún servidor.</p>
+        <div class="editor-toolbar">
+          <button id="editor-reset" type="button" class="editor-secondary">Restaurar original</button>
+          <button id="editor-copy" type="button" class="editor-primary">Copiar mi versión ↗</button>
+        </div>
+        <p id="editor-message" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</dialog>
 </main>
 <footer class="wrap"><a class="brand" href="index.html#inicio" aria-label="Volver al inicio">a<span>g</span><i>.</i></a><p>© <span id="year">2026</span> Alejandro García Asensio</p><a href="index.html#inicio">Volver arriba ↑</a></footer>
 <script>
@@ -72,33 +130,88 @@ navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(menu.getAttribute('aria-expanded')==='true'){menu.setAttribute('aria-expanded','false');navigation.classList.remove('open');menu.focus()}document.querySelectorAll('.training-dropdown[open]').forEach(d=>d.open=false)}});
 document.querySelector('#year').textContent=new Date().getFullYear();
 const grid=document.getElementById('library-grid'),count=document.getElementById('library-count'),empty=document.getElementById('library-empty'),search=document.getElementById('library-search'),select=document.getElementById('library-category');
-let prompts=[];
+const dialog=document.getElementById('prompt-editor'),editorText=document.getElementById('editor-text'),fields=document.getElementById('editor-fields'),editorTitle=document.getElementById('editor-heading'),editorOrigin=document.getElementById('editor-origin'),editorMessage=document.getElementById('editor-message');
+let prompts=[],active=null;
+const drafts=new Map();
 function normalize(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
+function draftFor(p){return drafts.has(p.id)?drafts.get(p.id):p.content}
+function saveDraft(){if(active)drafts.set(active.id,editorText.value)}
+function placeholders(text){return [...new Set([...text.matchAll(/\[([^\]\[\n]{2,110})\]/g)].map(m=>m[0]))].filter(x=>!(/^\[[A-Z]\]$/.test(x)))}
+function syncFieldInputs(){
+ for(const row of fields.querySelectorAll('[data-placeholder]')){
+  const placeholder=row.dataset.placeholder;
+  const input=row.querySelector('input');
+  if(!editorText.value.includes(placeholder)&&document.activeElement!==input){
+    row.classList.add('field-replaced');
+  } else row.classList.remove('field-replaced');
+ }
+}
+function buildFields(p){
+ fields.replaceChildren();
+ const found=placeholders(p.content);
+ if(!found.length){const note=document.createElement('p');note.className='editor-no-fields';note.textContent='Este prompt no contiene campos entre corchetes. Puedes personalizarlo directamente en el editor.';fields.append(note);return}
+ for(const token of found){
+  const label=document.createElement('label');label.className='editor-field';label.dataset.placeholder=token;
+  const heading=document.createElement('span');heading.textContent=token;
+  const input=document.createElement('input');input.type='text';input.placeholder='Escribe tu respuesta…';input.setAttribute('aria-label','Sustituir '+token);
+  const apply=document.createElement('button');apply.type='button';apply.textContent='Aplicar';apply.className='field-apply';
+  apply.addEventListener('click',()=>{
+   const value=input.value.trim();
+   if(!value){editorMessage.textContent='Escribe primero el valor que quieres introducir.';input.focus();return}
+   if(!editorText.value.includes(token)){editorMessage.textContent='El campo ya se ha sustituido. Puedes modificarlo directamente en el texto.';return}
+   editorText.value=editorText.value.split(token).join(value);
+   saveDraft();syncFieldInputs();editorMessage.textContent='Campo '+token+' actualizado en el prompt.';
+  });
+  label.append(heading,input,apply);fields.append(label);
+ }
+ syncFieldInputs();
+}
+function openEditor(p){
+ active=p;editorTitle.textContent='Personaliza el prompt';editorOrigin.textContent=p.title;
+ editorText.value=draftFor(p);editorMessage.textContent='';
+ buildFields(p);dialog.showModal();document.getElementById('editor-close').focus();
+}
+async function copyText(text){
+ if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return}
+ const temp=document.createElement('textarea');temp.value=text;temp.style.position='fixed';temp.style.opacity='0';document.body.append(temp);temp.select();const success=document.execCommand('copy');temp.remove();if(!success)throw Error('Copia no disponible');
+}
 function render(){
  const q=normalize(search.value.trim()),category=select.value;
  const filtered=prompts.filter(p=>(category==='all'||p.category===category)&&normalize(p.title+' '+p.content).includes(q));
  count.textContent=filtered.length+' de '+prompts.length+' prompts';
- grid.replaceChildren();
- empty.hidden=filtered.length!==0;
+ grid.replaceChildren();empty.hidden=filtered.length!==0;
  for(const p of filtered){
- const card=document.createElement('article');card.className='library-card';card.id=p.id;
- const top=document.createElement('div');top.className='card-top';
- const cat=document.createElement('span');cat.className='library-category';cat.textContent=p.category;
- const title=document.createElement('h3');title.textContent=p.title;
- const source=document.createElement('p');source.className='source-page';source.textContent='Biblioteca original · página '+p.page;
- top.append(cat,title,source);
- const actions=document.createElement('div');actions.className='library-actions';
- const copy=document.createElement('button');copy.type='button';copy.className='copy';copy.textContent='Copiar prompt';
- const feedback=document.createElement('p');feedback.className='library-feedback';feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
- copy.addEventListener('click',async()=>{try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(p.content);else{const t=document.createElement('textarea');t.value=p.content;t.style.position='fixed';t.style.opacity='0';document.body.append(t);t.select();const ok=document.execCommand('copy');t.remove();if(!ok)throw Error('No disponible')}feedback.textContent='Prompt copiado al portapapeles.'}catch{feedback.textContent='No se pudo copiar automáticamente; abre el texto y cópialo manualmente.'}});
- const details=document.createElement('details');details.className='library-details';
- const summary=document.createElement('summary');summary.textContent='Leer el prompt completo';
- const pre=document.createElement('pre');pre.textContent=p.content;
- details.append(summary,pre);
- actions.append(copy);
- card.append(top,actions,feedback,details);grid.append(card);
+  const card=document.createElement('article');card.className='library-card';card.id=p.id;
+  const top=document.createElement('div');top.className='card-top';
+  const cat=document.createElement('span');cat.className='library-category';cat.textContent=p.category;
+  const title=document.createElement('h3');title.textContent=p.title;
+  const source=document.createElement('p');source.className='source-page';source.textContent='Biblioteca original · página '+p.page;
+  top.append(cat,title,source);
+  const actions=document.createElement('div');actions.className='library-actions';
+  const edit=document.createElement('button');edit.type='button';edit.className='edit-prompt';edit.textContent='Personalizar prompt';
+  edit.addEventListener('click',()=>openEditor(p));
+  const copy=document.createElement('button');copy.type='button';copy.className='copy';copy.textContent='Copiar prompt';
+  const feedback=document.createElement('p');feedback.className='library-feedback';feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+  copy.addEventListener('click',async()=>{try{await copyText(draftFor(p));feedback.textContent=drafts.has(p.id)?'Tu versión personalizada se ha copiado.':'Prompt original copiado al portapapeles.'}catch{feedback.textContent='No se pudo copiar automáticamente. Abre el editor y selecciona el contenido.'}});
+  const details=document.createElement('details');details.className='library-details';
+  const summary=document.createElement('summary');summary.textContent='Leer el prompt original';
+  const pre=document.createElement('pre');pre.textContent=p.content;
+  details.append(summary,pre);actions.append(edit,copy);
+  card.append(top,actions,feedback,details);grid.append(card);
  }
 }
+document.getElementById('editor-close').addEventListener('click',()=>dialog.close());
+dialog.addEventListener('close',()=>{saveDraft();active=null});
+editorText.addEventListener('input',()=>{saveDraft();syncFieldInputs();editorMessage.textContent='Cambios realizados en esta sesión.'});
+document.getElementById('editor-reset').addEventListener('click',()=>{
+ if(!active)return;
+ editorText.value=active.content;drafts.delete(active.id);buildFields(active);editorMessage.textContent='Se ha restaurado el prompt original.';
+});
+document.getElementById('editor-copy').addEventListener('click',async()=>{
+ if(!active)return;saveDraft();
+ try{await copyText(editorText.value);editorMessage.textContent='Tu versión personalizada está copiada y lista para pegar.'}
+ catch{editorMessage.textContent='No se pudo copiar automáticamente. Selecciona el texto del editor y cópialo.'}
+});
 fetch('biblioteca-data.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar la biblioteca');return r.json()}).then(data=>{
  prompts=data.prompts;
  document.getElementById('library-advice').textContent=data.advice;
@@ -107,5 +220,6 @@ fetch('biblioteca-data.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar l
  render();
 }).catch(()=>{count.textContent='Error de carga';empty.hidden=false;empty.textContent='No ha sido posible cargar los prompts. Actualiza la página para reintentarlo.'});
 search.addEventListener('input',render);select.addEventListener('change',render);
+
 </script>
 </body></html>
