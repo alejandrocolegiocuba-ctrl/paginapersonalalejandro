@@ -17,7 +17,7 @@
 .library-advice{padding:26px 30px;border-radius:14px;border:1px solid #625780;background:linear-gradient(120deg,#2a2440,#171a29);margin-bottom:65px}
 .library-advice .small-label{color:#bba9ff}
 .library-advice h2{font-size:25px;margin:12px 0 14px}
-.library-advice p{white-space:pre-line;max-width:1000px;color:#dad9e6;font-size:14px;line-height:1.85;margin:0}
+.library-advice p{white-space:pre-line;max-width:none;width:100%;color:#dad9e6;font-size:14px;line-height:1.85;margin:0}
 .library-body{padding-bottom:100px}
 .library-top{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:27px}
 .library-top h2{font-size:clamp(28px,3vw,39px);margin:0}
@@ -84,6 +84,30 @@
 #editor-message{color:#c0b0ff;font-size:12px;min-height:20px;margin:13px 0 0}
 @media(max-width:780px){.editor-dialog{max-height:96vh}.editor-main{display:flex;flex-direction:column}.editor-heading-row{padding:22px}.editor-side{border-right:0;border-bottom:1px solid #494560;max-height:25vh;padding:18px 22px}.editor-content{padding:21px 22px}.editor-content textarea{min-height:240px;max-height:39vh}.editor-fields{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.editor-toolbar button{flex:1}}
 
+
+/* Consejo de uso: ocupa todo el ancho disponible */
+.library-advice{width:100%;max-width:none;display:grid;grid-template-columns:minmax(190px,.33fr) minmax(0,1fr);gap:clamp(22px,4vw,65px);align-items:start;padding:clamp(24px,3.4vw,44px)}
+.library-advice .advice-head{min-width:0}.library-advice .advice-head h2{font-size:clamp(27px,2.7vw,37px);line-height:1.2}
+.library-advice p{max-width:none;width:100%;min-width:0;font-size:clamp(14px,1.3vw,16px);line-height:1.85;white-space:pre-line}
+.context-tools{border-top:1px solid #49445f;margin-top:25px;padding-top:22px}
+.context-tools h3{font-size:18px}.context-fields{display:grid;gap:12px;margin-top:15px}
+.context-field{display:grid;gap:6px;color:#e2dbff;font-size:12px;font-weight:650}
+.context-field input{min-width:0;width:100%;font:inherit;font-size:13px;color:white;padding:10px 11px;border-radius:7px;border:1px solid #595575;background:#101323}
+.context-field input:focus-visible{outline:2px solid #a997ff;outline-offset:2px}
+.context-toggle{display:flex;align-items:center;gap:9px;margin-top:18px;font-size:12px;color:#e3daff}
+.context-toggle input{accent-color:#a592ff;width:17px;height:17px}
+.context-preview{margin:8px 0 15px;padding:15px;border-radius:10px;border:1px solid #514776;background:#1b1d30}
+.context-preview strong{font-size:12px;color:#d6caff}
+.context-preview pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 "DM Sans",sans-serif;color:#c8c8db;margin:10px 0 0;max-height:170px;overflow:auto}
+.library-card{animation:library-fade-in .42s ease both;animation-delay:calc(min(var(--card-order, 0), 5) * 55ms);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.library-card:hover{transform:translateY(-5px);border-color:#8373be;box-shadow:0 17px 40px #03030a55}
+.editor-dialog[open]{animation:editor-enter .27s ease both}
+.library-advice{animation:library-fade-in .6s ease both}
+@keyframes library-fade-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes editor-enter{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:820px){.library-advice{grid-template-columns:1fr;gap:10px}.library-advice .advice-head h2{margin-bottom:0}}
+@media(prefers-reduced-motion:reduce){.library-card,.library-advice,.editor-dialog[open]{animation:none}.library-card{transition:none}.library-card:hover{transform:none}}
+
 </style>
 </head>
 <body>
@@ -92,7 +116,7 @@
 <main id="contenido">
 <section class="library-hero wrap"><p class="eyebrow"><span class="dot"></span> MATERIAL DE LAS FORMACIONES / BIBLIOTECA</p><h1>Biblioteca personal<br>de <em>prompts.</em></h1><p class="library-lead">Una selección de prompts que he ido recopilando durante mi experiencia utilizando inteligencia artificial. Busca el que necesites, personalízalo en el editor y copia tu propia versión.</p><div class="library-switch" aria-label="Secciones del material"><a href="material-formaciones.html">Vibe coding prompts</a><a href="biblioteca-prompts.html" class="active" aria-current="page">Biblioteca personal de prompts</a></div></section>
 <section class="wrap">
-<div class="library-advice"><span class="small-label">ANTES DE EMPEZAR</span><h2>Un consejo de uso</h2><p id="library-advice">Personaliza los prompts antes de utilizarlos y adáptalos a tu contexto educativo.</p></div>
+<div class="library-advice"><div class="advice-head"><span class="small-label">ANTES DE EMPEZAR</span><h2>Un consejo de uso</h2></div><p id="library-advice">Personaliza los prompts antes de utilizarlos y adáptalos a tu contexto educativo.</p></div>
 </section>
 <section class="library-body wrap" aria-label="Catálogo de prompts"><div class="library-top"><h2>Explora los prompts</h2><span class="library-count" id="library-count" role="status" aria-live="polite">Cargando biblioteca…</span></div><div class="library-controls"><label for="library-search">Buscar un prompt</label><input id="library-search" type="search" placeholder="Buscar por título o contenido…" autocomplete="off"><label for="library-category">Filtrar por temática</label><select id="library-category"><option value="all">Todas las temáticas</option></select></div><div id="library-grid" class="library-grid"></div><p id="library-empty" class="library-empty" hidden>No hay prompts que coincidan con tu búsqueda.</p></section>
 <div class="library-footer wrap">Prompts extraídos de la biblioteca personal facilitada en PDF. <a href="material-formaciones.html">Volver a los prompts de Vibe Coding</a>.</div>
@@ -106,12 +130,12 @@
       <aside class="editor-side">
         <h3>Campos para personalizar</h3>
         <p class="editor-help">Completa los campos entre corchetes que detectemos. También puedes modificar libremente todo el texto.</p>
-        <div id="editor-fields" class="editor-fields"></div>
+        <div id="editor-fields" class="editor-fields"></div><div class="context-tools"><h3>Personalización adicional</h3><p class="editor-help">Opcional: añade detalles concretos de tu aula. Se incluirán como contexto al copiar el prompt.</p><div id="context-fields" class="context-fields"></div><label class="context-toggle"><input type="checkbox" id="context-enabled" checked> Incluir este contexto al copiar</label></div>
       </aside>
       <div class="editor-content">
         <label for="editor-text">Texto editable del prompt</label>
         <textarea id="editor-text" spellcheck="true" aria-describedby="editor-hint"></textarea>
-        <p id="editor-hint">Los cambios se conservan mientras mantengas abierta esta página. No se envían a ningún servidor.</p>
+        <p id="editor-hint">Los cambios se conservan mientras mantengas abierta esta página. No se envían a ningún servidor. Los datos adicionales se añaden al final del prompt cuando lo copies.</p><div class="context-preview" id="context-preview" hidden><strong>Contexto adicional que se copiará</strong><pre id="context-preview-text"></pre></div>
         <div class="editor-toolbar">
           <button id="editor-reset" type="button" class="editor-secondary">Restaurar original</button>
           <button id="editor-copy" type="button" class="editor-primary">Copiar mi versión ↗</button>
@@ -133,6 +157,49 @@ const grid=document.getElementById('library-grid'),count=document.getElementById
 const dialog=document.getElementById('prompt-editor'),editorText=document.getElementById('editor-text'),fields=document.getElementById('editor-fields'),editorTitle=document.getElementById('editor-heading'),editorOrigin=document.getElementById('editor-origin'),editorMessage=document.getElementById('editor-message');
 let prompts=[],active=null;
 const drafts=new Map();
+const contextDrafts=new Map();
+const contextFieldsDefinition=[
+ ['stage','Etapa y curso','Ej. 5.º de Primaria'],
+ ['subject','Área o materia','Ej. Ciencias Naturales'],
+ ['topic','Tema o contenido','Ej. La célula'],
+ ['aim','Objetivo de aprendizaje','¿Qué deben aprender?'],
+ ['learners','Características del alumnado','Diversidad, conocimientos previos, apoyos…'],
+ ['level','Nivel de dificultad','Ej. Iniciación, intermedio, avanzado'],
+ ['duration','Duración','Ej. 45 minutos'],
+ ['format','Formato de entrega','Ej. Infografía, HTML, tabla…'],
+ ['style','Estilo y tono','Ej. Claro, motivador y visual'],
+ ['access','Accesibilidad y apoyos','Ej. Lectura fácil, pictogramas, DUA…'],
+ ['constraints','Recursos y limitaciones','Ej. Sin internet, imprimible, sin cuentas…'],
+ ['evaluation','Evaluación y evidencias','Ej. Rúbrica, observación, producto final…']
+];
+const contextControls=document.getElementById('context-fields'),contextEnabled=document.getElementById('context-enabled'),contextPreview=document.getElementById('context-preview'),contextPreviewText=document.getElementById('context-preview-text');
+function contextValues(){const values={};for(const input of contextControls.querySelectorAll('input[data-context-key]')){const v=input.value.trim();if(v)values[input.dataset.contextKey]=v}return values}
+function contextBlock(p){
+ const entry=contextDrafts.get(p.id);
+ if(!entry||!entry.enabled)return '';
+ const lines=contextFieldsDefinition.filter(([key])=>entry.values[key]).map(([key,label])=>'- '+label+': '+entry.values[key]);
+ return lines.length?'CONTEXTO ADICIONAL PARA PERSONALIZAR LA RESPUESTA:\n'+lines.join('\n'):'';
+}
+function fullDraft(p){const block=contextBlock(p);return draftFor(p)+(block?'\n\n'+block:'')}
+function updateContext(){
+ if(!active)return;
+ contextDrafts.set(active.id,{values:contextValues(),enabled:contextEnabled.checked});
+ const block=contextBlock(active);contextPreview.hidden=!block;contextPreviewText.textContent=block;
+}
+function buildContext(p){
+ contextControls.replaceChildren();
+ const state=contextDrafts.get(p.id)||{values:{},enabled:true};
+ contextEnabled.checked=state.enabled;
+ for(const [key,labelText,hint] of contextFieldsDefinition){
+  const label=document.createElement('label');label.className='context-field';
+  const span=document.createElement('span');span.textContent=labelText;
+  const input=document.createElement('input');input.type='text';input.placeholder=hint;input.dataset.contextKey=key;input.value=state.values[key]||'';
+  input.addEventListener('input',updateContext);
+  label.append(span,input);contextControls.append(label);
+ }
+ updateContext();
+}
+contextEnabled.addEventListener('change',updateContext);
 function normalize(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
 function draftFor(p){return drafts.has(p.id)?drafts.get(p.id):p.content}
 function saveDraft(){if(active)drafts.set(active.id,editorText.value)}
@@ -169,7 +236,7 @@ function buildFields(p){
 function openEditor(p){
  active=p;editorTitle.textContent='Personaliza el prompt';editorOrigin.textContent=p.title;
  editorText.value=draftFor(p);editorMessage.textContent='';
- buildFields(p);dialog.showModal();document.getElementById('editor-close').focus();
+ buildFields(p);buildContext(p);dialog.showModal();document.getElementById('editor-close').focus();
 }
 async function copyText(text){
  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return}
@@ -180,8 +247,8 @@ function render(){
  const filtered=prompts.filter(p=>(category==='all'||p.category===category)&&normalize(p.title+' '+p.content).includes(q));
  count.textContent=filtered.length+' de '+prompts.length+' prompts';
  grid.replaceChildren();empty.hidden=filtered.length!==0;
- for(const p of filtered){
-  const card=document.createElement('article');card.className='library-card';card.id=p.id;
+ for(const [index,p] of filtered.entries()){
+  const card=document.createElement('article');card.style.setProperty('--card-order',String(index));card.className='library-card';card.id=p.id;
   const top=document.createElement('div');top.className='card-top';
   const cat=document.createElement('span');cat.className='library-category';cat.textContent=p.category;
   const title=document.createElement('h3');title.textContent=p.title;
@@ -192,7 +259,7 @@ function render(){
   edit.addEventListener('click',()=>openEditor(p));
   const copy=document.createElement('button');copy.type='button';copy.className='copy';copy.textContent='Copiar prompt';
   const feedback=document.createElement('p');feedback.className='library-feedback';feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
-  copy.addEventListener('click',async()=>{try{await copyText(draftFor(p));feedback.textContent=drafts.has(p.id)?'Tu versión personalizada se ha copiado.':'Prompt original copiado al portapapeles.'}catch{feedback.textContent='No se pudo copiar automáticamente. Abre el editor y selecciona el contenido.'}});
+  copy.addEventListener('click',async()=>{try{await copyText(fullDraft(p));feedback.textContent=(drafts.has(p.id)||!!contextBlock(p))?'Tu versión personalizada se ha copiado.':'Prompt original copiado al portapapeles.'}catch{feedback.textContent='No se pudo copiar automáticamente. Abre el editor y selecciona el contenido.'}});
   const details=document.createElement('details');details.className='library-details';
   const summary=document.createElement('summary');summary.textContent='Leer el prompt original';
   const pre=document.createElement('pre');pre.textContent=p.content;
@@ -205,11 +272,11 @@ dialog.addEventListener('close',()=>{saveDraft();active=null});
 editorText.addEventListener('input',()=>{saveDraft();syncFieldInputs();editorMessage.textContent='Cambios realizados en esta sesión.'});
 document.getElementById('editor-reset').addEventListener('click',()=>{
  if(!active)return;
- editorText.value=active.content;drafts.delete(active.id);buildFields(active);editorMessage.textContent='Se ha restaurado el prompt original.';
+ editorText.value=active.content;drafts.delete(active.id);contextDrafts.delete(active.id);buildFields(active);buildContext(active);editorMessage.textContent='Se han restaurado el prompt original y los campos adicionales.';
 });
 document.getElementById('editor-copy').addEventListener('click',async()=>{
  if(!active)return;saveDraft();
- try{await copyText(editorText.value);editorMessage.textContent='Tu versión personalizada está copiada y lista para pegar.'}
+ try{await copyText(fullDraft(active));editorMessage.textContent='Tu versión personalizada está copiada y lista para pegar.'}
  catch{editorMessage.textContent='No se pudo copiar automáticamente. Selecciona el texto del editor y cópialo.'}
 });
 fetch('biblioteca-data.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar la biblioteca');return r.json()}).then(data=>{
