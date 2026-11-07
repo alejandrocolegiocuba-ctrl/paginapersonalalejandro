@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Biblioteca personal de prompts educativos: veinte propuestas para IA, inclusión, evaluación, escritura, ilustración y creación de recursos interactivos.">
+<meta name="theme-color" content="#090c15">
+<title>Biblioteca personal de prompts · Alejandro García Asensio</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+<style>
+.library-hero{padding-top:94px;padding-bottom:55px;position:relative}
+.library-hero h1{font-size:clamp(45px,5.7vw,82px);line-height:1.06;max-width:920px;margin-bottom:26px}
+.library-lead{font-size:clamp(16px,1.6vw,20px);color:#c0c0d2;max-width:730px;line-height:1.7}
+.library-switch{display:flex;gap:10px;flex-wrap:wrap;margin:34px 0 0}
+.library-switch a{font-size:13px;border:1px solid #574c73;padding:11px 17px;border-radius:999px;color:#e5ddff;transition:background .2s}
+.library-switch a.active{background:#7663d7;border-color:#7663d7;color:#fff}
+.library-switch a:hover{background:#51446f}
+.library-advice{padding:26px 30px;border-radius:14px;border:1px solid #625780;background:linear-gradient(120deg,#2a2440,#171a29);margin-bottom:65px}
+.library-advice .small-label{color:#bba9ff}
+.library-advice h2{font-size:25px;margin:12px 0 14px}
+.library-advice p{white-space:pre-line;max-width:1000px;color:#dad9e6;font-size:14px;line-height:1.85;margin:0}
+.library-body{padding-bottom:100px}
+.library-top{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:27px}
+.library-top h2{font-size:clamp(28px,3vw,39px);margin:0}
+.library-count{color:#b7a9fa;font-size:12px;font-weight:700;letter-spacing:1.2px}
+.library-controls{display:flex;gap:12px;margin-bottom:28px}
+.library-controls label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.library-controls input,.library-controls select{font:inherit;background:#181c2c;color:#f2f0fa;border:1px solid #494660;border-radius:9px;padding:14px 16px;min-width:0}
+.library-controls input{flex:1}
+.library-controls select{width:min(310px,42%)}
+.library-controls input:focus-visible,.library-controls select:focus-visible{outline:2px solid #aa99ff;outline-offset:2px}
+.library-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.library-card{border:1px solid #343648;background:linear-gradient(145deg,#191d2b,#10131d);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.library-card[hidden]{display:none}
+.library-card .card-top{padding:26px 26px 20px;display:flex;flex-direction:column;gap:11px}
+.library-category{font-size:10px;letter-spacing:1px;font-weight:750;color:#b7a6ff;text-transform:uppercase}
+.library-card h3{font-size:clamp(18px,1.7vw,23px);line-height:1.32;letter-spacing:-.6px;margin:0}
+.library-card .source-page{color:#898fa8;font-size:11px;margin:0}
+.library-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:auto;padding:0 26px 24px}
+.library-actions button{border:1px solid #5c5378;background:#25243a;border-radius:7px;color:#eee9ff;padding:10px 13px;font-weight:650;font-size:12px;transition:background .2s}
+.library-actions .copy{background:#846df0;border-color:#846df0;color:white}
+.library-actions button:hover{background:#574588}
+.library-details{border-top:1px solid #454056;background:#10121f}
+.library-details summary{font-size:13px;padding:16px 26px;cursor:pointer;font-weight:650;color:#d7ccff}
+.library-details pre{font:14px/1.85 "DM Sans",sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;color:#e0e1ec;margin:0;padding:0 26px 26px;max-height:700px;overflow:auto}
+.library-feedback{font-size:12px;color:#bfb1ff;padding:0 26px;margin:-12px 0 18px}
+.library-feedback:empty{display:none}
+.library-empty{padding:32px;color:#c0bcce;text-align:center}
+.library-empty[hidden]{display:none}
+.library-footer{padding-bottom:70px;color:#b7aedb;font-size:13px}
+.library-footer a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:850px){.library-grid{grid-template-columns:1fr}.library-hero{padding-top:65px}.library-top{display:block}.library-count{display:block;margin-top:11px}}
+@media(max-width:550px){.library-controls{flex-direction:column}.library-controls select{width:100%}.library-advice{padding:20px}.library-card .card-top{padding:21px}.library-actions{padding:0 21px 20px}.library-details pre{padding:0 21px 21px}.library-details summary{padding:15px 21px}}
+@media(prefers-reduced-motion:reduce){.library-switch a,.library-actions button{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="header"><a class="brand" href="index.html#inicio" aria-label="Alejandro García Asensio, inicio">a<span>g</span><i>.</i></a><button class="menu" aria-expanded="false" aria-controls="navigation">Menú <span>☰</span></button><nav id="navigation" aria-label="Navegación principal"><a href="index.html#sobre-mi">Sobre mí</a><a href="index.html#experiencia">Trayectoria</a><a href="index.html#formaciones">Formaciones</a><a href="index.html#proyectos">Proyectos</a><details class="training-dropdown"><summary>Material de las formaciones <span aria-hidden="true">⌄</span></summary><div class="training-dropdown-panel"><a href="material-formaciones.html">Vibe coding prompts</a><a href="biblioteca-prompts.html" aria-current="page">Biblioteca personal de prompts</a></div></details><a class="nav-contact" href="index.html#contacto">Hablemos <span>↗</span></a></nav></header>
+<main id="contenido">
+<section class="library-hero wrap"><p class="eyebrow"><span class="dot"></span> MATERIAL DE LAS FORMACIONES / BIBLIOTECA</p><h1>Biblioteca personal<br>de <em>prompts.</em></h1><p class="library-lead">Una selección de prompts que he ido recopilando durante mi experiencia utilizando inteligencia artificial. Explóralos, adáptalos a tus necesidades y construye tu propia biblioteca.</p><div class="library-switch" aria-label="Secciones del material"><a href="material-formaciones.html">Vibe coding prompts</a><a href="biblioteca-prompts.html" class="active" aria-current="page">Biblioteca personal de prompts</a></div></section>
+<section class="wrap">
+<div class="library-advice"><span class="small-label">ANTES DE EMPEZAR</span><h2>Un consejo de uso</h2><p id="library-advice">Personaliza los prompts antes de utilizarlos y adáptalos a tu contexto educativo.</p></div>
+</section>
+<section class="library-body wrap" aria-label="Catálogo de prompts"><div class="library-top"><h2>Explora los prompts</h2><span class="library-count" id="library-count" role="status" aria-live="polite">Cargando biblioteca…</span></div><div class="library-controls"><label for="library-search">Buscar un prompt</label><input id="library-search" type="search" placeholder="Buscar por título o contenido…" autocomplete="off"><label for="library-category">Filtrar por temática</label><select id="library-category"><option value="all">Todas las temáticas</option></select></div><div id="library-grid" class="library-grid"></div><p id="library-empty" class="library-empty" hidden>No hay prompts que coincidan con tu búsqueda.</p></section>
+<div class="library-footer wrap">Prompts extraídos de la biblioteca personal facilitada en PDF. <a href="material-formaciones.html">Volver a los prompts de Vibe Coding</a>.</div>
+</main>
+<footer class="wrap"><a class="brand" href="index.html#inicio" aria-label="Volver al inicio">a<span>g</span><i>.</i></a><p>© <span id="year">2026</span> Alejandro García Asensio</p><a href="index.html#inicio">Volver arriba ↑</a></footer>
+<script>
+const menu=document.querySelector('.menu'),navigation=document.querySelector('#navigation');
+menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));navigation.classList.toggle('open',!open)});
+navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');navigation.classList.remove('open')}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(menu.getAttribute('aria-expanded')==='true'){menu.setAttribute('aria-expanded','false');navigation.classList.remove('open');menu.focus()}document.querySelectorAll('.training-dropdown[open]').forEach(d=>d.open=false)}});
+document.querySelector('#year').textContent=new Date().getFullYear();
+const grid=document.getElementById('library-grid'),count=document.getElementById('library-count'),empty=document.getElementById('library-empty'),search=document.getElementById('library-search'),select=document.getElementById('library-category');
+let prompts=[];
+function normalize(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
+function render(){
+ const q=normalize(search.value.trim()),category=select.value;
+ const filtered=prompts.filter(p=>(category==='all'||p.category===category)&&normalize(p.title+' '+p.content).includes(q));
+ count.textContent=filtered.length+' de '+prompts.length+' prompts';
+ grid.replaceChildren();
+ empty.hidden=filtered.length!==0;
+ for(const p of filtered){
+ const card=document.createElement('article');card.className='library-card';card.id=p.id;
+ const top=document.createElement('div');top.className='card-top';
+ const cat=document.createElement('span');cat.className='library-category';cat.textContent=p.category;
+ const title=document.createElement('h3');title.textContent=p.title;
+ const source=document.createElement('p');source.className='source-page';source.textContent='Biblioteca original · página '+p.page;
+ top.append(cat,title,source);
+ const actions=document.createElement('div');actions.className='library-actions';
+ const copy=document.createElement('button');copy.type='button';copy.className='copy';copy.textContent='Copiar prompt';
+ const feedback=document.createElement('p');feedback.className='library-feedback';feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+ copy.addEventListener('click',async()=>{try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(p.content);else{const t=document.createElement('textarea');t.value=p.content;t.style.position='fixed';t.style.opacity='0';document.body.append(t);t.select();const ok=document.execCommand('copy');t.remove();if(!ok)throw Error('No disponible')}feedback.textContent='Prompt copiado al portapapeles.'}catch{feedback.textContent='No se pudo copiar automáticamente; abre el texto y cópialo manualmente.'}});
+ const details=document.createElement('details');details.className='library-details';
+ const summary=document.createElement('summary');summary.textContent='Leer el prompt completo';
+ const pre=document.createElement('pre');pre.textContent=p.content;
+ details.append(summary,pre);
+ actions.append(copy);
+ card.append(top,actions,feedback,details);grid.append(card);
+ }
+}
+fetch('biblioteca-data.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar la biblioteca');return r.json()}).then(data=>{
+ prompts=data.prompts;
+ document.getElementById('library-advice').textContent=data.advice;
+ const categories=[...new Set(prompts.map(p=>p.category))].sort((a,b)=>a.localeCompare(b,'es'));
+ for(const category of categories){const option=document.createElement('option');option.value=category;option.textContent=category;select.append(option)}
+ render();
+}).catch(()=>{count.textContent='Error de carga';empty.hidden=false;empty.textContent='No ha sido posible cargar los prompts. Actualiza la página para reintentarlo.'});
+search.addEventListener('input',render);select.addEventListener('change',render);
+</script>
+</body></html>
