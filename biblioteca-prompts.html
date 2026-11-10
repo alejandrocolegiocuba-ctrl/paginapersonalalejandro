@@ -108,6 +108,7 @@
 @media(max-width:820px){.library-advice{grid-template-columns:1fr;gap:10px}.library-advice .advice-head h2{margin-bottom:0}}
 @media(prefers-reduced-motion:reduce){.library-card,.library-advice,.editor-dialog[open]{animation:none}.library-card{transition:none}.library-card:hover{transform:none}}
 
+.new-prompt-featured{border:1px solid #8070c7;background:linear-gradient(110deg,#252044,#131725);border-radius:15px;padding:25px 30px;margin-bottom:25px}.new-prompt-featured[hidden]{display:none}.new-prompt-featured h3{font-size:clamp(21px,2.2vw,29px);margin:12px 0 7px}.new-prompt-featured p{color:#c8c3dc;font-size:14px;margin:0 0 16px}.new-prompt-featured button{background:#8871f1;color:white;border:1px solid #a591ff;border-radius:8px;padding:11px 17px;font-weight:700;cursor:pointer}.new-prompt-featured button:hover{background:#9c86ff}
 .new-prompt-label{display:inline-block;align-self:flex-start;border:1px solid #8f7bf2;background:#352b5f;color:#ede4ff;padding:4px 9px;border-radius:999px;font-size:10px;font-weight:750;letter-spacing:.8px}.library-card#prompt-21{border-color:#8070c7;scroll-margin-top:100px}
 </style>
 </head>
@@ -119,7 +120,7 @@
 <section class="wrap">
 <div class="library-advice"><div class="advice-head"><span class="small-label">ANTES DE EMPEZAR</span><h2>Un consejo de uso</h2></div><p id="library-advice">Personaliza los prompts antes de utilizarlos y adáptalos a tu contexto educativo.</p></div>
 </section>
-<section class="library-body wrap" aria-label="Catálogo de prompts"><div class="library-top"><h2>Explora los prompts</h2><span class="library-count" id="library-count" role="status" aria-live="polite">Cargando biblioteca…</span></div><div class="library-controls"><label for="library-search">Buscar un prompt</label><input id="library-search" type="search" placeholder="Buscar por título o contenido…" autocomplete="off"><label for="library-category">Filtrar por temática</label><select id="library-category"><option value="all">Todas las temáticas</option></select></div><div id="library-grid" class="library-grid"></div><p id="library-empty" class="library-empty" hidden>No hay prompts que coincidan con tu búsqueda.</p></section>
+<section class="library-body wrap" aria-label="Catálogo de prompts"><div class="library-top"><h2>Explora los prompts</h2><span class="library-count" id="library-count" role="status" aria-live="polite">Cargando biblioteca…</span></div><div class="library-controls"><label for="library-search">Buscar un prompt</label><input id="library-search" type="search" placeholder="Buscar por título o contenido…" autocomplete="off"><label for="library-category">Filtrar por temática</label><select id="library-category"><option value="all">Todas las temáticas</option></select></div><div class="new-prompt-featured"><span class="new-prompt-label">NUEVO · PRIMARIA</span><h3>Diseño de actividades competenciales para 5.º y 6.º de Primaria</h3><p>Diseña actividades, explicaciones, secuencias o fichas para 5.º y 6.º de Primaria. Personaliza curso, tema, objetivos, duración, características del alumnado y fuentes.</p><button type="button" id="open-new-prompt">Personalizar este prompt ↗</button></div><div id="library-grid" class="library-grid"></div><p id="library-empty" class="library-empty" hidden>No hay prompts que coincidan con tu búsqueda.</p></section>
 <div class="library-footer wrap">Prompts extraídos de la biblioteca personal facilitada en PDF. <a href="material-formaciones.html">Volver a los prompts de Vibe Coding</a>.</div>
 <dialog id="prompt-editor" class="editor-dialog" aria-labelledby="editor-heading">
   <div class="editor-shell">
@@ -248,6 +249,7 @@ function render(){
  const q=normalize(search.value.trim()),category=select.value;
  const filtered=prompts.filter(p=>(category==='all'||p.category===category)&&normalize(p.title+' '+p.content).includes(q)).sort((a,b)=>(a.id==='prompt-21'?-1:b.id==='prompt-21'?1:0));
  count.textContent=filtered.length+' de '+prompts.length+' prompts';
+ document.querySelector('.new-prompt-featured').hidden=!!q||category!=='all';
  grid.replaceChildren();empty.hidden=filtered.length!==0;
  for(const [index,p] of filtered.entries()){
   const card=document.createElement('article');card.style.setProperty('--card-order',String(index));card.className='library-card';card.id=p.id;
@@ -269,6 +271,7 @@ function render(){
   card.append(top,actions,feedback,details);grid.append(card);
  }
 }
+document.getElementById('open-new-prompt').addEventListener('click',()=>openEditor(newestPrompt));
 document.getElementById('editor-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{saveDraft();active=null});
 editorText.addEventListener('input',()=>{saveDraft();syncFieldInputs();editorMessage.textContent='Cambios realizados en esta sesión.'});
@@ -281,7 +284,7 @@ document.getElementById('editor-copy').addEventListener('click',async()=>{
  try{await copyText(fullDraft(active));editorMessage.textContent='Tu versión personalizada está copiada y lista para pegar.'}
  catch{editorMessage.textContent='No se pudo copiar automáticamente. Selecciona el texto del editor y cópialo.'}
 });
-fetch('biblioteca-data.json?v=20261110-21',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar la biblioteca');return r.json()}).then(data=>{
+fetch('biblioteca-data-21.json?v=20261110-1439',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar la biblioteca');return r.json()}).then(data=>{
  prompts=[newestPrompt,...data.prompts.filter(p=>p.id!==newestPrompt.id)];
  document.getElementById('library-advice').textContent=data.advice;
  const categories=[...new Set(prompts.map(p=>p.category))].sort((a,b)=>a.localeCompare(b,'es'));
