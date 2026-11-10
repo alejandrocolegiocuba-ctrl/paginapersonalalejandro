@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Biblioteca personal de prompts educativos: veinte propuestas para IA, inclusión, evaluación, escritura, ilustración y creación de recursos interactivos.">
+<meta name="description" content="Biblioteca personal de prompts educativos: veintiuna propuestas para IA, inclusión, evaluación, escritura, ilustración y creación de recursos interactivos.">
 <meta name="theme-color" content="#090c15">
 <title>Biblioteca personal de prompts · Alejandro García Asensio</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
@@ -252,7 +252,7 @@ function render(){
   const top=document.createElement('div');top.className='card-top';
   const cat=document.createElement('span');cat.className='library-category';cat.textContent=p.category;
   const title=document.createElement('h3');title.textContent=p.title;
-  const source=document.createElement('p');source.className='source-page';source.textContent='Biblioteca original · página '+p.page;
+  const source=document.createElement('p');source.className='source-page';source.textContent=p.page?'Biblioteca original · página '+p.page:'Nuevo prompt · Biblioteca personal';
   top.append(cat,title,source);
   const actions=document.createElement('div');actions.className='library-actions';
   const edit=document.createElement('button');edit.type='button';edit.className='edit-prompt';edit.textContent='Personalizar prompt';
