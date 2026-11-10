@@ -27,5 +27,5 @@ menu.addEventListener('click',()=>{const opened=menu.getAttribute('aria-expanded
 navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');navigation.classList.remove('open')}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(menu.getAttribute('aria-expanded')==='true'){menu.setAttribute('aria-expanded','false');navigation.classList.remove('open');menu.focus()}document.querySelectorAll('.training-dropdown[open]').forEach(d=>d.open=false)}});
 document.getElementById('year').textContent=new Date().getFullYear();
-document.getElementById('contact-designer').addEventListener('click',()=>{const username=['ninabilee'],domain=['gmail','com'].join('.');const address=username[0]+'@'+domain;window.location.href='mailto:'+address+'?subject='+encodeURIComponent('Consulta sobre diseño de presentaciones');});
+document.getElementById('contact-designer').addEventListener('click',()=>{const username=['karinasilvanovoa.design'],domain=['gmail','com'].join('.');const address=username[0]+'@'+domain;window.location.href='mailto:'+address+'?subject='+encodeURIComponent('Consulta sobre diseño de presentaciones');});
 </script></body></html>
